@@ -7,39 +7,47 @@
     ansible.builtin.systemd: 
       name: mongod
       state: stopped
+      when: service_status.stat.exists
   
   - name: arret de rabbitmq
     ansible.builtin.systemd: 
       name: rabbitmq
       state: stopped
-  
+      when: service_status.stat.exists
+
   - name: arret de redis
     ansible.builtin.systemd: 
       name: redis
       state: stopped
+      when: service_status.stat.exists
 
   - name: arret de elasticsearch
     ansible.builtin.systemd: 
       name: elasticsearch
       state: stopped
+      when: service_status.stat.exists
 
   - name: démarrage de mongoDB
     ansible.builtin.systemd: 
       name: mongod
       state: started
+      when: service_status.stat.exists
   
   - name: démarrage de rabbitmq
     ansible.builtin.systemd: 
       name: rabbitmq
       state: started
+      when: service_status.stat.exists
   
   - name: démarrage de redis
     ansible.builtin.systemd: 
       name: redis
       state: started
+      when: service_status.stat.exists
 
   - name: démarrage de elasticsearch
     ansible.builtin.systemd: 
       name: elasticsearch
       state: started
+      when: service_status.stat.exists
 ...
