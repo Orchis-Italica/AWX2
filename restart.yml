@@ -3,29 +3,43 @@
   hosts: all
 
   tasks:
-  - name: redemarage des services systran
-    ansible.builtin.systemd: 
-      name: systran-activity-collector.service systran-corpus-manager2.service systran-dct-indexer.service systran-gdict.service systran-lookup.service systran-routing.service systran-ses-console.service systran-ses-file-translation-consumer.service systran-ses-gateway.service systran-ses-poller.service systran-tm-indexer.service systran-translation-dispatcher.service systran-translation-resource-monitor.service systran-trs-console.service systran-trs-poller.service
-      state: restarted
-
-  - name: redemarage de mongoDB
+  - name: arret de mongoDB
     ansible.builtin.systemd: 
       name: mongod
-      state: restarted
+      state: stopped
   
-  - name: redemarage de rabbitmq
+  - name: arret de rabbitmq
     ansible.builtin.systemd: 
       name: rabbitmq
-      state: restarted
+      state: stopped
   
-  - name: redemarage de redis
+  - name: arret de redis
     ansible.builtin.systemd: 
       name: redis
-      state: restarted
+      state: stopped
 
-  - name: redemarage de elasticsearch
+  - name: arret de elasticsearch
     ansible.builtin.systemd: 
       name: elasticsearch
-      state: restarted
+      state: stopped
 
+  - name: démarrage de mongoDB
+    ansible.builtin.systemd: 
+      name: mongod
+      state: started
+  
+  - name: démarrage de rabbitmq
+    ansible.builtin.systemd: 
+      name: rabbitmq
+      state: started
+  
+  - name: démarrage de redis
+    ansible.builtin.systemd: 
+      name: redis
+      state: started
+
+  - name: démarrage de elasticsearch
+    ansible.builtin.systemd: 
+      name: elasticsearch
+      state: started
 ...
