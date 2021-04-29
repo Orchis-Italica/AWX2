@@ -7,26 +7,26 @@
     ansible.builtin.systemd: 
       name: redis
       state: restarted
-      ignore_errors: true
+    ignore_errors: true
 
   
   - name: redemarrage de rabbitmq
     ansible.builtin.systemd: 
       name: rabbitmq
       state: restarted
-      ignore_errors: true
+    ignore_errors: true
 
   - name: redemarrage de redis
     ansible.builtin.systemd: 
       name: redis
       state: restarted
       daemon_reload: yes
-      ignore_errors: true
+    ignore_errors: true
 
   - name: redemarrage de elasticsearch
     ansible.builtin.systemd: 
       name: elasticsearch
       state: restarted
       daemon_reload: yes
-      ignore_errors: true
+    ignore_errors: true
 ...
