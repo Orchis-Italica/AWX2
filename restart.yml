@@ -1,6 +1,6 @@
 ---
 - name: restart des services
-  hosts: serveur
+  hosts: all
   remote_user: root
 
   tasks:
