@@ -1,5 +1,5 @@
 ---
-- name: restart des services
+- name: redemarrage des services
   hosts: all
 
   tasks:
