@@ -5,7 +5,7 @@
   tasks:
   - name: redemarage des services systran
     ansible.builtin.systemd: 
-      name: systran*
+      name: systran-activity-collector.service systran-corpus-manager2.service systran-dct-indexer.service systran-gdict.service systran-lookup.service systran-routing.service systran-ses-console.service systran-ses-file-translation-consumer.service systran-ses-gateway.service systran-ses-poller.service systran-tm-indexer.service systran-translation-dispatcher.service systran-translation-resource-monitor.service systran-trs-console.service systran-trs-poller.service
       state: restarted
 
   - name: redemarage de mongoDB
