@@ -5,27 +5,27 @@
   tasks:
   - name: redemarrage de mongoDB
     ansible.builtin.systemd: 
-      name: mongod
+      name: redis
       state: restarted
-    when: service_status.stat.exists
+
   
   - name: redemarrage de rabbitmq
     ansible.builtin.systemd: 
       name: rabbitmq
       state: restarted
-    when: service_status.stat.exists
+
 
   - name: redemarrage de redis
     ansible.builtin.systemd: 
       name: redis
       state: restarted
       daemon_reload: yes
-    when: service_status.stat.exists
+
 
   - name: redemarrage de elasticsearch
     ansible.builtin.systemd: 
       name: elasticsearch
       state: restarted
       daemon_reload: yes
-    when: service_status.stat.exists
+
 ...
