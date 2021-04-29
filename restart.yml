@@ -7,14 +7,12 @@
     systemd: 
       name: mongod
       state: restarted
-      daemon_reload: yes
     when: service_status.stat.exists
   
   - name: redemarrage de rabbitmq
     systemd: 
       name: rabbitmq
       state: restarted
-      daemon_reload: yes
     when: service_status.stat.exists
 
   - name: redemarrage de redis
