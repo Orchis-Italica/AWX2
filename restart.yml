@@ -3,51 +3,31 @@
   hosts: all
 
   tasks:
-  - name: arret de mongoDB
+  - name: redemarrage de mongoDB
     ansible.builtin.systemd: 
       name: mongod
-      state: stopped
+      state: restarted
+      daemon_reload: yes
       when: service_status.stat.exists
   
-  - name: arret de rabbitmq
+  - name: redemarrage de rabbitmq
     ansible.builtin.systemd: 
       name: rabbitmq
-      state: stopped
+      state: restarted
+      daemon_reload: yes
       when: service_status.stat.exists
 
-  - name: arret de redis
+  - name: redemarrage de redis
     ansible.builtin.systemd: 
       name: redis
-      state: stopped
+      state: restarted
+      daemon_reload: yes
       when: service_status.stat.exists
 
-  - name: arret de elasticsearch
+  - name: redemarrage de elasticsearch
     ansible.builtin.systemd: 
       name: elasticsearch
-      state: stopped
-      when: service_status.stat.exists
-
-  - name: démarrage de mongoDB
-    ansible.builtin.systemd: 
-      name: mongod
-      state: started
-      when: service_status.stat.exists
-  
-  - name: démarrage de rabbitmq
-    ansible.builtin.systemd: 
-      name: rabbitmq
-      state: started
-      when: service_status.stat.exists
-  
-  - name: démarrage de redis
-    ansible.builtin.systemd: 
-      name: redis
-      state: started
-      when: service_status.stat.exists
-
-  - name: démarrage de elasticsearch
-    ansible.builtin.systemd: 
-      name: elasticsearch
-      state: started
+      state: restarted
+      daemon_reload: yes
       when: service_status.stat.exists
 ...
