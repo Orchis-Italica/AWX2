@@ -1,7 +1,6 @@
 ---
 - name: restart des services
   hosts: all
-  remote_user: root
 
   tasks:
   - name: redemarage des services systran
