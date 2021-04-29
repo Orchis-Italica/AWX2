@@ -1,0 +1,32 @@
+---
+- name: restart des services
+  hosts: serveur
+  remote_user: root
+
+  tasks:
+  - name: redemarage des services systran
+    ansible.builtin.systemd: 
+      name: systran*
+      state: restarted
+
+  - name: redemarage de mongoDB
+    ansible.builtin.systemd: 
+      name: mongod
+      state: restarted
+  
+  - name: redemarage de rabbitmq
+    ansible.builtin.systemd: 
+      name: rabbitmq
+      state: restarted
+  
+  - name: redemarage de redis
+    ansible.builtin.systemd: 
+      name: redis
+      state: restarted
+
+  - name: redemarage de elasticsearch
+    ansible.builtin.systemd: 
+      name: elasticsearch
+      state: restarted
+
+...
